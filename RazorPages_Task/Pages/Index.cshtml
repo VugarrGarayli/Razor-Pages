@@ -1,0 +1,79 @@
+﻿@page
+@model RazorPages_Task.Pages.IndexModel
+@{
+
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: auto;
+        }
+
+        p {
+            font-size: 3em;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .page {
+            width: 40%;
+            margin-left: 33%;
+        }
+
+            .page > a {
+                font-size: 2em;
+                margin-left: 30px;
+                text-decoration: none;
+                border-radius: 25px;
+                border: 0;
+                background-color: rgb(129, 234, 116);
+                padding: 15px;
+            }
+
+            .table{
+              margin-top:10%;
+            }
+    </style>
+</head>
+
+
+<body>
+    <p>Person</p>
+    <div class="page">
+        <a href="/Add/AddPage">Add Person</a>
+        <a href="/Update/UpdatePage">Update Person</a>
+        <a href="/Delete/DeletePage">Delete Person</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Address</th>
+                <th scope="col">Age</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Persons)
+            {
+<tr>
+    <th scope="row">@p.Id</th>
+    <td>@p.Name</td>
+    <td>@p.Surname</td>
+    <td>@p.Address</td>
+    <td>@p.Age</td>
+    <td>@p.Salary</td>
+</tr>            }
+        </tbody>
+    </table>
+</body>
+</html>
